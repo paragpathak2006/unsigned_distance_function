@@ -4,36 +4,87 @@
 #include <iostream>
 #include <vector>
 #include "Point.h"
-typedef vector<Point> Points;
+#include "Finder.h"
 
-float unsigned_distance(const Points &points, const Point &target, int &nearest_point) {
-    nearest_point = 0;
+
+float unsigned_distance_brute_force(const Points &points, const Point &target, double beta, int &nearest_point) {
+    nearest_point = -1;
     float min_dist = target.dist(points[0]);
     int i = 0;
+    double beta2 = beta * beta;
     for (const Point &p: points)
     {
         float dist = target.dist(p);
-        if (dist < min_dist)
+        if (dist < min_dist && dist < beta2)
         {
             min_dist = dist;
             nearest_point = i;
         }
         i++;
     }
-    return min_dist;
+    return (min_dist > beta2) ? beta2 : min_dist;
+}
+
+double unsigned_distance_space_map(const Points& points, const Point& target, double beta, double map_size, int& nearest_point) {
+
+    nearest_point = -1;
+    Space_map::initialize_space_map(/* with input points as */ points,/* map_size as */ map_size, /*  and beta as */ beta);
+    double unsigned_dist = Space_map::search_space_map(points, target, nearest_point);
+    Space_map::make_empty();
+
+    return unsigned_dist;
+}
+
+void print_output(float dist, int nearest_point, const Point& target, const Points& points){
+    cout <<"Unsigned distance : " << sqrt(dist) << endl;
+    cout << "Nearest point : "; 
+
+    if (nearest_point >= 0) 
+        points[nearest_point].print();
+
+    cout << endl << endl << endl;
 }
 
 int main()
 {
+    Point target = { 0,1,1.2 };
+    double beta = 0.5;
+    double map_size = 0.1;
     Points points = {Point(0,0,0),Point(0,0,1),Point(0,1,1),Point(0,1,0)};
-    int nearest_point;
-    Point target = { 2,2,2 };
-    std::cout << "Hello World!\n";
-    float dist = unsigned_distance(points, target, nearest_point);
-    std::cout << dist<<endl;
-    std::cout << nearest_point << endl;
-    target.print();
-    points[nearest_point].print();
+
+    int nearest_point1;
+    int nearest_point2;
+
+    double d = target.dist(Point(0, 0, 0));
+
+    cout << "Beta : " << beta <<endl;    
+    cout << "Map_size : " << map_size << endl << endl;
+
+    cout << "Target point : "; target.print();
+    cout << "Points : " << endl;
+
+    for(const Point& p : points) p.print();
+
+    cout << "------------------------------------------------------" << endl;
+    cout << endl;
+
+
+    cout << "Unsigned_distance_space_map Debug log" << endl;
+    float dist2 = unsigned_distance_space_map(points, target, beta, map_size, nearest_point2);
+
+    cout << endl << endl;
+
+    cout << "******************************************************************" << endl << endl;
+
+    cout << "Unsigned_distance_brute_force output" << endl;
+
+    float dist1 = unsigned_distance_brute_force(points, target, beta, nearest_point1);
+    print_output(dist1, nearest_point1, target, points);
+
+    cout << "------------------------------------------------------" << endl << endl;
+
+    cout << "Unsigned_distance_space_map output..." << endl;
+    print_output(dist2, nearest_point2, target, points);
 
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Point {
@@ -9,7 +10,9 @@ public:
     Point(double X, double Y, double Z) : x(X), y(Y), z(Z) {}
     Point() { x = 0; y = 0; z = 0; }
     Point operator+(const Point& rhs) const { return Point(x + rhs.x, y + rhs.y, z + rhs.z); }
-    Point operator-(const Point& rhs) const { return Point(x - rhs.x, y - rhs.y, z - rhs.z); }
+    Point operator-(const Point& rhs) const { 
+        return Point(x - rhs.x, y - rhs.y, z - rhs.z); 
+    }
     Point operator/(double d) { return Point(x / d, y / d, z / d); }
     Point operator*(double d) { return Point(x * d, y * d, z * d); }
     bool operator==(Point rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
@@ -21,7 +24,7 @@ public:
         );
     }
 
-    void print() { cout << "(" << x << "," << y << "," << z << ")" <<endl; }
+    void print() const { cout << "(" << x << "," << y << "," << z << ")" <<endl; }
 
 
     //Vector2D rotate_90(Vector2D v) { return Vector2D(-v.y, v.x); }
@@ -48,8 +51,13 @@ public:
         return Point(x, y, z);
     }
 
-    double length() const { return x * x + y * y + z * z; };
-    double dist(const Point &p) const { return Point(*this - p).length(); };
+    double length() const { 
+        return x * x + y * y + z * z; 
+    };
+    double dist(const Point &p) const { 
+        auto p0 = *this - p;
+        return p0.length(); 
+    };
 
     Point unity() {
         double d = sqrt(x * x + y * y + z * z);
@@ -57,3 +65,5 @@ public:
     }
 
 };
+
+typedef vector<Point> Points;
