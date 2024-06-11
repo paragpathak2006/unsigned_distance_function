@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClCompile Include="Finder.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Space_map2.cpp" />
     <ClCompile Include="unsigned_distance_function.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Finder.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Space_map2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

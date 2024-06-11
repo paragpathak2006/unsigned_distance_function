@@ -5,6 +5,7 @@
 #include <vector>
 #include "Point.h"
 #include "Finder.h"
+#include "Space_map2.h"
 
 
 float unsigned_distance_brute_force(const Points &points, const Point &target, double beta, int &nearest_point) {
@@ -32,6 +33,15 @@ double unsigned_distance_space_map(const Points& points, const Point& target, do
     double unsigned_dist = Space_map::search_space_map(points, target, nearest_point);
     Space_map::make_empty();
 
+    return unsigned_dist;
+}
+
+double unsigned_distance_space_map2(const Points& points, const Point& target, double beta, double map_size, int& nearest_point) {
+
+    nearest_point = -1;
+    Space_map2 space_map(/* with input points as */ points, /* map_size as */ map_size);
+    double unsigned_dist = space_map.search_space_map(points, target, beta, nearest_point);
+    space_map.make_empty();
     return unsigned_dist;
 }
 
@@ -70,7 +80,7 @@ int main()
 
 
     cout << "Unsigned_distance_space_map Debug log" << endl;
-    float dist2 = unsigned_distance_space_map(points, target, beta, map_size, nearest_point2);
+    float dist2 = unsigned_distance_space_map2(points, target, beta, map_size, nearest_point2);
 
     cout << endl << endl;
 
