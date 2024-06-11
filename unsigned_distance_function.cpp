@@ -6,7 +6,10 @@
 #include "Point.h"
 #include "Finder.h"
 #include "Space_map2.h"
+#include "Loader.h"
 
+// fStream - STD File I/O Library
+#include <fstream>
 
 float unsigned_distance_brute_force(const Points &points, const Point &target, double beta, int &nearest_point) {
     nearest_point = -1;
@@ -55,8 +58,12 @@ void print_output(float dist, int nearest_point, const Point& target, const Poin
     cout << endl << endl << endl;
 }
 
+
 int main()
 {
+
+    load_file();
+
     Point target = { 0,1,1.2 };
     double beta = 0.5;
     double map_size = 0.1;

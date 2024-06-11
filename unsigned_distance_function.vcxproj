@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Finder.h" />
+    <ClInclude Include="Loader.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Space_map2.h" />
   </ItemGroup>

@@ -21,6 +21,7 @@ public:
     Point_index() { x = 0; y = 0; z = 0; }
     bool operator==(const Point_index& rhs) const { return x == rhs.x && y == rhs.y && z == rhs.z; }
     void print() const { cout << "(" << x << "," << y << "," << z << ")" << endl; }
+    void print2() const { cout << "(" << x << "," << y << "," << z << ")"; }
 
 };
 
@@ -61,12 +62,14 @@ public:
         for (size_t i = 0; i < num_points; i++)
             add_point(points[i], i);
 
-        //        cout << "Point map print" << endl;
-        //        for (const auto& p : point_map)
-        //            p.first.print();
-        //        cout << endl << endl;
-        //        vector<int> point_indexes;
-        //        lookup_point_region(Point(0, 0, 0.02), point_indexes);
+        cout << "Points indexed as" << endl;
+        for (const auto& p : point_map)
+        {
+            p.first.print2(); cout << " -> " << p.second << endl;
+        }
+        cout << endl << endl;
+        //vector<int> point_indexes;
+        //lookup_point_region(Point(0, 0, 0.02), point_indexes);
     }
 
     void make_empty() { point_map.empty(); }
