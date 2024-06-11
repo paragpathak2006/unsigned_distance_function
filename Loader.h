@@ -18,6 +18,9 @@
 // Math.h - STD math Library
 #include <math.h>
 
+// Math.h - STD math Library
+#include "Point.h"
+
 // Print progress to console while loading (large models)
 #define OBJL_CONSOLE_OUTPUT
 
@@ -1165,6 +1168,22 @@ namespace objl
 		}
 	};
 }
+
+void get_mesh(const std::string& file, objl::Mesh& mesh){
+	objl::Loader Loader;
+	bool loadout = Loader.LoadFile(file);
+
+	if (!loadout)
+		mesh = objl::Mesh();
+	else
+		mesh = Loader.LoadedMeshes[0];
+}
+
+void get_points(const objl::Mesh& curMesh, Points& points) {
+	for (int j = 0; j < curMesh.Vertices.size(); j++)
+		points.emplace_back(curMesh.Vertices[j].Position.X, curMesh.Vertices[j].Position.Y, curMesh.Vertices[j].Position.Z);
+}
+
 
 void load_file() {
 
