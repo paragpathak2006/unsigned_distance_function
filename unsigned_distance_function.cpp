@@ -1,12 +1,12 @@
 // unsigned_distance_function.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
 #include <iostream>
 #include <vector>
-#include "Point.h"
-#include "Finder.h"
-#include "Space_map2.h"
-#include "Loader.h"
+
+#include "Geometry/Point.h"
+#include "Containers/Finder.h"
+#include "Containers/Space_map2.h"
+#include "Input_output/Loader.h"
 
 // fStream - STD File I/O Library
 #include <fstream>
@@ -70,7 +70,7 @@ int main()
     Points points;
 
     objl::Mesh mesh;
-    get_mesh("piston.obj", mesh);
+    get_mesh("3DObjects/cube.obj", mesh);
     get_points(mesh, points);
 
     int nearest_point1;
