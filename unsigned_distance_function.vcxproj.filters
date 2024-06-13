@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\GTE">
+      <UniqueIdentifier>{f993796c-ca2b-41c3-9b17-29c9948a58db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="unsigned_distance_function.cpp">
@@ -40,6 +43,18 @@
     </ClInclude>
     <ClInclude Include="Loader.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DistPointTriangle.h">
+      <Filter>Header Files\GTE</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Header Files\GTE</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Header Files\GTE</Filter>
+    </ClInclude>
+    <ClInclude Include="DCPQuery.h">
+      <Filter>Header Files\GTE</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
