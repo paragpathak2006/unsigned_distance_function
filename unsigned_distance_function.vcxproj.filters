@@ -27,9 +27,6 @@
     <ClCompile Include="Geometry\Point.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Containers\Finder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Containers\Space_map2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -51,9 +48,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Geometry\Point.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Containers\Finder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Containers\Space_map2.h">
