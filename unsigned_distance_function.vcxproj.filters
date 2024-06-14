@@ -30,6 +30,9 @@
     <ClCompile Include="Containers\Space_map2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Containers\Space_map3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mathematics\DistPointTriangle.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Containers\Space_map2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Containers\Space_map3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

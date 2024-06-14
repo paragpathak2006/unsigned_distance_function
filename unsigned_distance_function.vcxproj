@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Containers\Space_map2.cpp" />
+    <ClCompile Include="Containers\Space_map3.cpp" />
     <ClCompile Include="Geometry\Point.cpp" />
     <ClCompile Include="Input_output\Loader.cpp" />
     <ClCompile Include="unsigned_distance_function.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Containers\Space_map2.h" />
+    <ClInclude Include="Containers\Space_map3.h" />
     <ClInclude Include="Geometry\Point.h" />
     <ClInclude Include="Input_output\Loader.h" />
     <ClInclude Include="Mathematics\DCPQuery.h" />
