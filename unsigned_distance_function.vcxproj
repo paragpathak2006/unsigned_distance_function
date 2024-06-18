@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Containers\Space_map2.cpp" />
     <ClCompile Include="Containers\Space_map3.cpp" />
+    <ClCompile Include="Geometry\Face.cpp" />
     <ClCompile Include="Geometry\Point.cpp" />
     <ClCompile Include="Input_output\Loader.cpp" />
     <ClCompile Include="unsigned_distance_function.cpp" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Containers\Space_map2.h" />
     <ClInclude Include="Containers\Space_map3.h" />
+    <ClInclude Include="Geometry\Face.h" />
     <ClInclude Include="Geometry\Point.h" />
     <ClInclude Include="Input_output\Loader.h" />
     <ClInclude Include="Mathematics\DCPQuery.h" />

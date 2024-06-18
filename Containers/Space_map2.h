@@ -61,15 +61,6 @@ public:
 
         for (size_t i = 0; i < num_points; i++)
             add_point(points[i], i);
-
-        //cout << "Points indexed as" << endl;
-        //for (const auto& p : point_map)
-        //{
-        //    p.first.print2(); cout << " -> " << p.second << endl;
-        //}
-        //cout << endl << endl;
-        //vector<int> point_indexes;
-        //lookup_point_region(Point(0, 0, 0.02), point_indexes);
     }
 
     void make_empty() { point_map.empty(); }
@@ -95,16 +86,6 @@ public:
         int max_index = round(beta / map_size);
         Point_index target_index(target,map_size);
         point_indexes.reserve(50);
-
-        //cout << "Target indexed as : " ;target_index.print();
-
-        //cout << "Lookup nearby point at box real dist : " << map_size * max_index << endl;
-        //cout << "Lookup nearby point at box index dist : " << max_index << endl;
-        //cout << "Box dim : " << endl;
-
-        //Point_index(target_index.x + max_index, target_index.y + max_index, target_index.z + max_index).print();
-        //Point_index(target_index.x - max_index, target_index.y - max_index, target_index.z - max_index).print();
-        //cout << endl << endl;
 
         for (int i = target_index.x - max_index; i <= target_index.x + max_index; i++)
         for (int j = target_index.y - max_index; j <= target_index.y + max_index; j++)
