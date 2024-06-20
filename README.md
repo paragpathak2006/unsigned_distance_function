@@ -7,9 +7,11 @@ https://github.com/paragpathak2006/CudaRuntime1 <br/><br/>
 ## Updated Git repo
 Lastest updates are in the following repo2 <br/>
 https://github.com/paragpathak2006/CudaRuntime2 <br/>
+
 ## Mesh
 Define a Mesh that has vertex Points Pi and Triangular faces Tj as <br/>
 Mesh=Pi,Tj(Pa,Pb,Pc)
+
 ## Bounding box
 If point is outside a bounding BoxPi  at β distance, them point is automatically a Beta distance. <br/>
 BoxPi at β distance
