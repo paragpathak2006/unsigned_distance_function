@@ -3,33 +3,35 @@
 https://github.com/paragpathak2006/unsigned_distance_function 
 https://github.com/paragpathak2006/CudaRuntime1 
 ## Mesh
-Define a Mesh that has vertex Points Pi and Triangular faces Tj as
+Define a Mesh that has vertex Points Pi and Triangular faces Tj as <br/>
 Mesh=Pi,Tj(Pa,Pb,Pc)
 ## Bounding box
-If point is outside a bounding BoxPi  at β distance, them point is automatically a Beta distance.
+If point is outside a bounding BoxPi  at β distance, them point is automatically a Beta distance. <br/>
 BoxPi at β distance
 ## Convex hull method
-If point is outside a bounding convex HullPi  at β distance, them point is automatically outside a Beta distance.  
+If point is outside a bounding convex HullPi  at β distance, them point is automatically outside a Beta distance.  <br/>
 
 ## Pointwise distance
-Q is query point. βis maximum truncated distance. 
-dmin=mind(Q,Pi),β
+Q is query point. βis maximum truncated distance. <br/>
+dmin=mind(Q,Pi),β <br/>
 ## Facewise distance
-Q is query point. βis maximum truncated distance.
-dmin=mindQ,Tj,β
-Ref: Distance Between Point and Triangle in 3D (geometrictools.com)
-(https://www.geometrictools.com/Documentation/DistancePoint3Triangle3.pdf)
-Let Face Triangle be defined as Tjs,t 
-Tjs,t= B +sE0 +tE1 ,∀ s≥0,t≥0,s+t≤1
-Face Triangle to Point distance can be found using the formula
-dQ,Tj=ds,t=as2 + 2bst + ct2 + 2ds + 2et + f
-a = E0 · E0,b = E0 · E1,c = E1 · E1, 
-d = E0 · B - P,e = E1 · B - P,f = (B - P) · (B - P)
-d0,t= ct2 + 2et + f→t=-ec 
-ds,0=as2 + 2ds + f→s=-da
-ds,1-s=as2 + 2bs1-s+c1-s2 + 2ds+ 2e1-s+ f→
-s=b+d-c-eb-c-a,t=b+e-a-db-c-a
-=as+b1-s-b+cs-1+d-e=a-b+cs+b-c+d-e-da
+Q is query point. βis maximum truncated distance. <br/>
+dmin=mindQ,Tj,β <br/>
+Ref: Distance Between Point and Triangle in 3D (geometrictools.com) <br/>
+(https://www.geometrictools.com/Documentation/DistancePoint3Triangle3.pdf) <br/>
+
+Let Face Triangle be defined as <br/>
+Tjs,t Tjs,t= B +sE0 +tE1 ,∀ s≥0,t≥0,s+t≤1 <br/>
+
+Face Triangle to Point distance can be found using the formula<br/>
+dQ,Tj=ds,t=as2 + 2bst + ct2 + 2ds + 2et + f <br/>
+a = E0 · E0,b = E0 · E1,c = E1 · E1, <br/>
+d = E0 · B - P,e = E1 · B - P,f = (B - P) · (B - P) <br/>
+d0,t= ct2 + 2et + f→t=-ec <br/>
+ds,0=as2 + 2ds + f→s=-da <br/>
+ds,1-s=as2 + 2bs1-s+c1-s2 + 2ds+ 2e1-s+ f→ <br/>
+s=b+d-c-eb-c-a,t=b+e-a-db-c-a <br/>
+=as+b1-s-b+cs-1+d-e=a-b+cs+b-c+d-e-da <br/>
 
 ## Brute force approach
 Go over all the points and faces to find the minimum possible distance dmin  between target point and mesh points.
@@ -37,6 +39,8 @@ Go over all the points and faces to find the minimum possible distance dmin  bet
 Recommended approach of indexing is using octree, but in our case were going to implement a simple space map to spatially Index the mesh points. After indexing, find all the points and faces in a β sphere to minimize list of candidate Points to search.
 Spatial indexing using CUDA, requires us to implement unordered map using CUDA. A vectorized unordered map is implemented using an additional vector container for storing indexes. The program is supposed to handle each spatial index on an individual CUDA thread. However, the process of indexing is still serial, as we have assumed this will not be repeated and is not time-constrained.
 CUDA streams can be used to further enhance the concurrency of the data transfer process.
+![image](https://github.com/paragpathak2006/CudaRuntime1/assets/31978917/b0443065-ff67-4f37-af8e-55b95cbc5726)
+
 ## Parallel Hashmap
 A parallelized version of Hashing was also implemented.
 
@@ -166,7 +170,6 @@ Kernel execution time: 0 ms
 
 Unsigned distance : 0.2
 Target point : Point(0,1,1.2)
-
 
 
 
