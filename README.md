@@ -8,14 +8,14 @@ https://github.com/paragpathak2006/CudaRuntime1 <br/><br/>
 Lastest updates are in the following repo2 <br/>
 https://github.com/paragpathak2006/CudaRuntime2 <br/>
 ## Mesh
-Define a Mesh that has vertex Points Pi and Triangular faces Tj as <br/>
+Define a Mesh that has vertex Points $P_i$ and Triangular faces $T_j$ as <br/>
 $$Mesh(P_i,T_j) = (P_a,P_b,P_c)$$
 ## Bounding box
 If point is outside a bounding BoxPi  at β distance, them point is automatically a Beta distance. <br/>
 $$Box(P_i,β) = (P_{min} \pm β , P_{max} \pm β)$$
 
 ## Convex hull method
-If point is outside a bounding convex Hull Pi  at β distance, them point is automatically outside a Beta distance.  <br/>
+If point is outside a bounding convex Hull $P_i$  at β distance, them point is automatically outside a Beta distance.  <br/>
 
 ## Pointwise distance
 Q is query point. βis maximum truncated distance. <br/>
